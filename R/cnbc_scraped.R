@@ -6,7 +6,7 @@ library(rvest) # Web scraping tool
 pages <- c(
   "https://www.cnbc.com/business/" = "Business", # Defining the urls of interest and the `source` name of each page for the cnbc_tbl
   "https://www.cnbc.com/investing/" = "Investing",
-  "https://www.cnbc.com/technology/" = "Technology",
+  "https://www.cnbc.com/technology/" = "Tech",
   "https://www.cnbc.com/politics/" = "Politics"
 )
 
@@ -44,7 +44,7 @@ ggplot(cnbc_tbl, aes(x = source, y = length)) + #Using ggplot visualization of b
 
 # Analysis
 cnbc_tbl <- cnbc_tbl %>% # I made sure that the source was factored before doing any ANOVAs
-  mutate(source = factor(source, levels = c("Business", "Investing", "Technology", "Politics")))
+  mutate(source = factor(source, levels = c("Business", "Investing", "Tech", "Politics")))
 
 cnbc_aov <- aov(length ~ source, data = cnbc_tbl) # First needed to create the formula to inform the ANOVA
 summary(cnbc_aov) # This function prints out the results of the ANOVA in an a Table.
