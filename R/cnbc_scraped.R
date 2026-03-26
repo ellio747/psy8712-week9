@@ -64,7 +64,7 @@ str_c(
   " statistically significant.", 
   sep = ""
 )
-# "The results of an ANOVA comparing lengths across sources was F(3, 130) = 2.01, p = .12. This test was not statistically significant."
+# "The results of an ANOVA comparing lengths across sources was F(3, 130) = 1.85, p = .14. This test was not statistically significant."
 
 
 
