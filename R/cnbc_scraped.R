@@ -52,19 +52,19 @@ summary(cnbc_aov) # This function prints out the results of the ANOVA in an a Ta
 # Publication
 str_c(
   "The results of an ANOVA comparing lengths across sources was F(",
-  summary(cnbc_aov)[[1]]$Df[1], #selects df
+  round(summary(cnbc_aov)[[1]]$Df[1], 0), #selects df
   ", ",
-  cnbc_aov$df.residual, #select residual df
+  round(cnbc_aov$df.residual, 0), #select residual df
   ") = ", 
-  str_remove(sprintf("%.2f", summary(cnbc_aov)[[1]]$`F value`[1]), "^0"), # selects F test value; used sprintf as in Part 2
+  str_remove(formatC(summary(cnbc_aov)[[1]]$`F value`[1], format = "f", digits = 2), "^0"), # selects F test value; used sprintf as in Part 2
   ", p = ", 
-  str_remove(sprintf("%.2f", summary(cnbc_aov)[[1]]$`Pr(>F)`[1]), "^0"),  # selects p.value
+  str_remove(formatC(summary(cnbc_aov)[[1]]$`Pr(>F)`[1], format = "f", digits = 2), "^0"),  # selects p.value
   ". This test ", 
   ifelse(summary(cnbc_aov)[[1]]$`Pr(>F)`[1] < 0.05, "was", "was not"), # runs a logical test evaluating p.value at p < .05; would need to specify this significance value in publication
   " statistically significant.", 
   sep = ""
 )
-# "The results of an ANOVA comparing lengths across sources was F(3, 130) = 1.85, p = .14. This test was not statistically significant."
+# "The results of an ANOVA comparing lengths across sources was F(3, 130) = 2.12, p = .10. This test was not statistically significant."
 
 
 
